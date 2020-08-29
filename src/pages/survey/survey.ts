@@ -1,0 +1,362 @@
+// Components, functions, plugins
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, NgModule } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import 'rxjs/add/operator/map';
+import { Database } from './../../providers/database/database';
+import { Localstorage } from './../../providers/localstorage/localstorage';
+
+// Pages
+import { HomePage } from '../home/home';
+
+declare var formatTime: any;
+declare var dateFormat: any;
+
+@IonicPage()
+@Component({
+  selector: 'page-survey',
+  templateUrl: 'survey.html',
+})
+export class SurveyPage {
+
+	// Eval question variables
+	public SurveyQ1: string;
+	public SurveyQ1C: string;
+	public SurveyQ2: string;
+	public SurveyQ2C: string;
+	public SurveyQ3: string;
+	public SurveyQ3C: string;
+	public SurveyQ4: string;
+	public SurveyQ4C: string;
+	public SurveyQ5: string;
+	public SurveyQ5C: string;
+	public SurveyQ6: string;
+	public SurveyQ6C: string;
+	public SurveyQ7: string;
+	public SurveyQ7C: string;
+	public SurveyQ8: string;
+	public SurveyQ8C: string;
+	public SurveyQ9: string;
+	public SurveyQ9C: string;
+	public SurveyQ10: string;
+	public SurveyQ10C: string;
+	public SurveyQ11: string;
+	public SurveyQ11C: string;
+	public SurveyQ12: string;
+	public SurveyQ12C: string;
+	public SurveyQ13: string;
+	public SurveyQ13C: string;
+	public SurveyQ14: string;
+	public SurveyQ14C: string;
+	public SurveyQ15: string;
+	public SurveyQ15C: string;
+	
+	// Set number of questions here
+	public NumberOfQuestions: number;
+			
+	constructor(public navCtrl: NavController, 
+				public navParams: NavParams, 
+				private nav: NavController,
+				public cd: ChangeDetectorRef,
+				private storage: Storage,
+				public loadingCtrl: LoadingController,
+				private alertCtrl: AlertController,
+				private databaseprovider: Database,
+				private localstorage: Localstorage) {
+
+	}
+
+	mcqAnswer(value){
+	   console.log(value);
+	}
+
+	ionViewDidLoad() {
+		
+		console.log('ionViewDidLoad SurveyPage');
+		
+		var FlyinID = this.localstorage.getLocalValue('FlyinMeetingID');
+		
+		// Blank survey questions
+		this.SurveyQ1 = "10";	// Set default value for range control
+		this.SurveyQ1C = "";
+		this.SurveyQ2 = "";
+		this.SurveyQ2C = "";
+		this.SurveyQ3 = "10";	// Set default value for range control
+		this.SurveyQ3C = "";
+		this.SurveyQ4 = "10";	// Set default value for range control
+		this.SurveyQ4C = "";
+		this.SurveyQ5 = "10";	// Set default value for range control
+		this.SurveyQ5C = "";
+		this.SurveyQ6 = "10";	// Set default value for range control
+		this.SurveyQ6C = "";
+		this.SurveyQ7 = "10";	// Set default value for range control
+		this.SurveyQ7C = "";
+		this.SurveyQ8 = "10";	// Set default value for range control
+		this.SurveyQ8C = "";
+		this.SurveyQ9 = "";
+		this.SurveyQ9C = "";
+		this.SurveyQ10 = "";
+		this.SurveyQ10C = "";
+		this.SurveyQ11 = "";
+		this.SurveyQ11C = "";
+		this.SurveyQ12 = "";
+		this.SurveyQ12C = "";
+		this.SurveyQ13 = "";
+		this.SurveyQ13C = "";
+		this.SurveyQ14 = "";
+		this.SurveyQ14C = "";
+		this.SurveyQ15 = "";
+		this.SurveyQ15C = "";
+
+		this.NumberOfQuestions = 12;			
+		
+		this.cd.markForCheck();
+	}
+
+	SubmitSurvey() {
+		
+        console.log('Save survey...');
+
+		var EventID = this.localstorage.getLocalValue('EventID');
+		var FlyinID = this.localstorage.getLocalValue('FlyinMeetingID');
+		var AttendeeID = this.localstorage.getLocalValue('AttendeeID');
+		var flags;
+
+		// Saving progress
+		let saving = this.loadingCtrl.create({
+			spinner: 'crescent',
+			content: 'Saving...'
+		});
+
+		// Alert for successful save
+		let savealert = this.alertCtrl.create({
+			title: 'Survey',
+			subTitle: 'Survey data has been submitted.',
+			cssClass: 'alertCustomCss',
+			buttons: ['Ok']
+		});
+
+		// Alert for failed save
+		let failalert = this.alertCtrl.create({
+			title: 'Survey Entry',
+			subTitle: 'Unable to submit your Survey at this time - please try again in a little bit.',
+			cssClass: 'alertCustomCss',
+			buttons: ['Ok']
+		});
+
+		// Show saving progress
+		saving.present();
+
+		// Validation checks
+		var ValidationPass = true;
+		var QuestionsMissed = "";
+
+		if ((this.NumberOfQuestions >= 1) && (this.SurveyQ1 == null || this.SurveyQ1 == "")) {
+			ValidationPass = false;
+			QuestionsMissed = "1";
+		}
+		if ((this.NumberOfQuestions >= 2) && (this.SurveyQ2 == null || this.SurveyQ2 == "")) {
+			ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "2";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",2";
+			}
+		}
+		if ((this.NumberOfQuestions >= 3) && (this.SurveyQ3 == null || this.SurveyQ3 == "")) {
+			ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "3";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",3";
+			}
+		}
+		if ((this.NumberOfQuestions >= 4) && (this.SurveyQ4 == null || this.SurveyQ4 == "")) {
+		  ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "4";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",4";
+			}
+		}
+		if ((this.NumberOfQuestions >= 5) && (this.SurveyQ5 == null || this.SurveyQ5 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "5";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",5";
+			}
+		}
+		if ((this.NumberOfQuestions >= 6) && (this.SurveyQ6 == null || this.SurveyQ6 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "6";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",6";
+			}
+		}
+		if ((this.NumberOfQuestions >= 7) && (this.SurveyQ7 == null || this.SurveyQ7 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "7";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",7";
+			}
+		}
+		if ((this.NumberOfQuestions >= 8) && (this.SurveyQ8 == null || this.SurveyQ8 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "8";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",8";
+			}
+		}
+		if ((this.NumberOfQuestions >= 9) && (this.SurveyQ9 == null || this.SurveyQ9 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "9";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",9";
+			}
+		}
+		if ((this.NumberOfQuestions >= 10) && (this.SurveyQ10 == null || this.SurveyQ10 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "10";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",10";
+			}
+		}
+		if ((this.NumberOfQuestions >= 11) && (this.SurveyQ11 == null || this.SurveyQ11 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "11";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",11";
+			}
+		}
+		if ((this.NumberOfQuestions >= 12) && (this.SurveyQ12 == null || this.SurveyQ12 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "12";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",12";
+			}
+		}
+		if ((this.NumberOfQuestions >= 13) && (this.SurveyQ13 == null || this.SurveyQ13 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "13";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",13";
+			}
+		}
+		if ((this.NumberOfQuestions >= 14) && (this.SurveyQ14 == null || this.SurveyQ14 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "14";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",14";
+			}
+		}
+		if ((this.NumberOfQuestions >= 15) && (this.SurveyQ15 == null || this.SurveyQ15 == "")) {
+		   ValidationPass = false;
+			if (QuestionsMissed == "") {
+				QuestionsMissed = "15";
+			} else {
+				QuestionsMissed = QuestionsMissed + ",15";
+			}
+		}
+		
+		// Alert for required fields
+		let requiredalert = this.alertCtrl.create({
+			title: 'Survey Entry',
+			subTitle: 'All questions are required to be completed before submitting. You are missing the following questions: ' + QuestionsMissed,
+			cssClass: 'alertCustomCss',
+			buttons: ['Ok']
+		});
+
+		
+		// Send data to server for storage and emailing
+        if (ValidationPass == false) {
+			
+			saving.dismiss();
+			requiredalert.present();
+
+        } else {
+
+			// Send survey data via email to jacob.beaver@prime-policy.com			
+			flags = "sv|" + FlyinID;
+			flags = flags + "|" + EventID;
+			flags = flags + "|" + this.SurveyQ1;
+			flags = flags + "|" + this.SurveyQ1C;
+			flags = flags + "|" + this.SurveyQ2;
+			flags = flags + "|" + this.SurveyQ2C;
+			flags = flags + "|" + this.SurveyQ3;
+			flags = flags + "|" + this.SurveyQ3C;
+			flags = flags + "|" + this.SurveyQ4;
+			flags = flags + "|" + this.SurveyQ4C;
+			flags = flags + "|" + this.SurveyQ5;
+			flags = flags + "|" + this.SurveyQ5C;
+			flags = flags + "|" + this.SurveyQ6;
+			flags = flags + "|" + this.SurveyQ6C;
+			flags = flags + "|" + this.SurveyQ7;
+			flags = flags + "|" + this.SurveyQ7C;
+			flags = flags + "|" + this.SurveyQ8;
+			flags = flags + "|" + this.SurveyQ8C;
+			flags = flags + "|" + this.SurveyQ9;
+			flags = flags + "|" + this.SurveyQ9C;
+			flags = flags + "|" + this.SurveyQ10;
+			flags = flags + "|" + this.SurveyQ10C;
+			flags = flags + "|" + this.SurveyQ11;
+			flags = flags + "|" + this.SurveyQ11C;
+			flags = flags + "|" + this.SurveyQ12;
+			flags = flags + "|" + this.SurveyQ12C;
+			flags = flags + "|" + this.SurveyQ13;
+			flags = flags + "|" + this.SurveyQ13C;
+			flags = flags + "|" + this.SurveyQ14;
+			flags = flags + "|" + this.SurveyQ14C;
+			flags = flags + "|" + this.SurveyQ15;
+			flags = flags + "|" + this.SurveyQ15C;
+			
+			console.log('Feedback survey flag: ' + flags);
+			
+			this.databaseprovider.sendSurveyData(flags, AttendeeID).then(data => {
+				
+				console.log('Feedbacksurvye response: ' + JSON.stringify(data));
+				
+				if (data['length']>0) {
+					
+					if (data[0].svStatus == "Success") {
+						// Saved
+						saving.dismiss();
+						savealert.present();
+						this.navCtrl.setRoot(HomePage);
+					} else {
+						// Not saved
+						saving.dismiss();
+						failalert.present();
+					}
+					
+				} else {
+					
+					// Not saved
+					saving.dismiss();
+					failalert.present();
+					
+				}
+				
+			}).catch(function () {
+				console.log("Survey: Promise Rejected");
+			});
+
+        }
+		
+	}
+
+}
+
+
+
+
+

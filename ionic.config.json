@@ -1,0 +1,8 @@
+{
+  "name": "demoflyin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "32d8638e"
+}

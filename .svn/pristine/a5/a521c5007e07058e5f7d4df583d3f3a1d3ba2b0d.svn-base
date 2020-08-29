@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>
+			{{IssueTitle}} Materials
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  
+
+		<img src="assets/img/Capitol1.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+
+  
+    <ion-list *ngFor="let IssueDocument of IssuesListing" id="issues-list-item19">
+           
+		<ion-item tappable text-wrap class="item-avatar item-icon-right" (click)="ViewDocument(IssueDocument.Filename)">
+			<ion-icon name="folder" item-left color=secondary></ion-icon>
+			<ion-icon name="arrow-dropright" item-right color=secondary></ion-icon>
+			<h2>{{IssueDocument.DocumentTitle}}</h2>
+		</ion-item>
+
+  </ion-list>
+  
+</ion-content>
+  

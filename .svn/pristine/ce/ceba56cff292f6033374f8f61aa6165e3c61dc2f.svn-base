@@ -1,0 +1,100 @@
+// Components, functions, plugins
+import { Component, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, NgModule } from '@angular/core';
+import { NavController, NavParams, LoadingController, FabContainer } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Database } from './../../providers/database/database';
+import { Localstorage } from './../../providers/localstorage/localstorage';
+
+@Component({
+  selector: 'page-issues',
+  templateUrl: 'issues.html',
+})
+export class IssuesPage {
+
+	public IssuesListing: any[] = [];
+	public IssueTitle: string;
+	
+	constructor(public navCtrl: NavController, 
+				public navParams: NavParams,
+				private storage: Storage,
+				private databaseprovider: Database,
+				private cd: ChangeDetectorRef,
+				public loadingCtrl: LoadingController,
+				private localstorage: Localstorage) {
+	}
+
+  
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad IssuesPage');
+	}
+
+    ViewDocument(fmFilename) {
+
+		if (fmFilename.length > 0) {
+			var WebsiteURL = 'https://DemoFlyin.convergence-us.com/AdminGateway/attachments/' + fmFilename;
+			console.log('Issues: retrieving document: ' + WebsiteURL);
+            window.open(WebsiteURL, '_system');
+        }
+
+    };
+
+	ngOnInit() {
+
+		// Dynamically set the page title for Materials based on fly-in type
+		var flyinType = this.localstorage.getLocalValue("FlyinType");
+		this.IssueTitle = flyinType;
+		
+		// Blank and show loading info
+		this.IssuesListing = [];
+		this.cd.markForCheck();
+		
+		// Temporary use variables
+		var flyinID = this.localstorage.getLocalValue("FlyinMeetingID");
+		var flags = "li|" + flyinID + "|0";
+        var DisplayName = "";
+		var visDisplayPartyState = "";
+		var visDisplayDistrict = "";
+        var SpeakerDividerCharacter = "";
+		
+		// Get the data
+		this.databaseprovider.getDocumentData(flags, "0").then(data => {
+			
+			if (data['length']>0) {
+				
+				for (var i = 0; i < data['length']; i++) {
+
+					this.IssuesListing.push({
+						Filename: data[i].fmFilename,
+						DocumentTitle: data[i].fmTitle,
+						navigationArrow: "arrow-dropright"
+					});
+
+				}
+
+
+			} else {
+				
+                // No records to show
+				this.IssuesListing.push({
+					Filename: "",
+					DocumentTitle: "No documents currently available",
+					navigationArrow: ""
+				});
+
+			}
+
+			this.cd.markForCheck();
+
+			//loading.dismiss();
+			
+		}).catch(function () {
+			console.log("Promise Rejected");
+		});
+		
+	}
+
+}
+
+
