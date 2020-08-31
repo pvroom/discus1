@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.convergenceus.flyin.discus" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.convergenceus.flyin.discus" version="4.4.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>DISCUS PPC</name>
-    <description>A Fly-in agenda management app for DISCUS-ACSA</description>
+    <description>A Fly-in agenda management app for DISCUS</description>
     <author email="pvroom@convergence-us.com" href="http://convergence-us.com/">Convergence</author>
     <content src="index.html" />
     <access origin="*" />
