@@ -1,0 +1,57 @@
+./platforms/ios/DISCUS PPC.xcarchive/Products/Applications/DISCUS PPC.app/config.xml
+./platforms/ios/DISCUS PPC.xcarchive/Products/Applications/DISCUS PPC.app/www/build/vendor.js
+./platforms/ios/DISCUS PPC.xcarchive/Products/Applications/DISCUS PPC.app/www/build/vendor.js.map
+./platforms/ios/DISCUS PPC.xcarchive/Products/Applications/DISCUS PPC.app/DISCUS PPC
+./platforms/ios/www/build/vendor.js
+./platforms/ios/www/build/vendor.js.map
+./platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.m
+./platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.m
+./platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h
+./platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h
+./platforms/ios/CordovaLib/Classes/Public/CDVViewController.m
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.m
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.h
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.m
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.h
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.h
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.m
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h
+./platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.m
+./platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.pbxproj
+./platforms/ios/build/device/libCordova.a
+./platforms/ios/build/device/DISCUS PPC.app.dSYM/Contents/Resources/DWARF/DISCUS PPC
+./platforms/ios/build/sharedpch/SharedPrecompiledHeaders/3512922205353167754/DISCUS PPC-Prefix.pch.d
+./platforms/ios/DISCUS PPC/Classes/MainViewController.m
+./platforms/ios/DISCUS PPC/Plugins/cordova-plugin-inappbrowser/CDVUIInAppBrowser.h
+./platforms/ios/DISCUS PPC/Plugins/cordova-plugin-inappbrowser/CDVWKInAppBrowser.m
+./platforms/ios/DISCUS PPC/Plugins/cordova-plugin-inappbrowser/CDVUIInAppBrowser.m
+./platforms/ios/DISCUS PPC/Plugins/ionic-plugin-keyboard/IonicKeyboard.m
+./platforms/ios/DISCUS PPC/Plugins/de.appplant.cordova.plugin.printer/APPPrinter.m
+./platforms/ios/DISCUS PPC/config.xml
+./.svn/pristine/19/195edd49da3dfba5f4085d7bc1a694bc6f9f9746.svn-base
+./.svn/pristine/37/3739c1d77f630c8cdf1f551c8aa4fadc32977b7b.svn-base
+./.svn/pristine/63/638909d4d038d3c4d181aaaa6eb7afe26a106092.svn-base
+./plugins/cordova-plugin-safariviewcontroller/README.md
+./plugins/cordova-plugin-inappbrowser/tests/tests.js
+./plugins/cordova-plugin-inappbrowser/RELEASENOTES.md
+./plugins/cordova-plugin-inappbrowser/README.md
+./plugins/cordova-plugin-inappbrowser/src/ios/CDVUIInAppBrowser.h
+./plugins/cordova-plugin-inappbrowser/src/ios/CDVWKInAppBrowser.m
+./plugins/cordova-plugin-inappbrowser/src/ios/CDVUIInAppBrowser.m
+./plugins/cordova-plugin-whitelist/README.md
+./plugins/ionic-plugin-keyboard/src/ios/IonicKeyboard.m
+./plugins/cordova-sqlite-ext/README.md
+./plugins/de.appplant.cordova.plugin.printer/src/ios/APPPrinter.m
+./node_modules/@ionic-native/in-app-browser/ngx/index.d.ts
+./node_modules/@ionic-native/in-app-browser/index.d.ts
+./node_modules/cordova-ios/bin/templates/project/www/index.html
+./node_modules/cordova-ios/bin/templates/project/__PROJECT_NAME__/Classes/MainViewController.m
+./node_modules/cordova-ios/tests/spec/unit/fixtures/ios-config-xml/CordovaLib/CordovaLib.xcodeproj/project.pbxproj
+./node_modules/cordova-ios/tests/spec/unit/fixtures/ios-config-xml/SampleApp/Classes/MainViewController.m
+./node_modules/cordova-ios/tests/CordovaLibTests/CDVWebViewTest.h
+./node_modules/cordova-ios/tests/CordovaLibTests/CDVUserAgentTest.m
+./node_modules/cordova-ios/tests/CordovaLibTests/CDVWhitelistTests.m
+./node_modules/cordova-ios/tests/CordovaLibTests/CDVWebViewDelegateTests.m
+./node_modules/cordova-ios/tests/CordovaLibTests/CDVWebViewTest.m
+./no

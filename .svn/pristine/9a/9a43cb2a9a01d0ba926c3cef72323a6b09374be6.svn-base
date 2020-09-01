@@ -93,7 +93,7 @@ export class MyApp {
 		
 		this.pages = [
 		  { title: 'Home', icon: 'home', component: HomePage, naventry: 'Home' },
-		  //{ title: 'My Agenda', icon: 'calendar', component: MyAgenda, naventry: 'MyAgenda' },
+		  { title: 'My Agenda', icon: 'calendar', component: MyAgenda, naventry: 'MyAgenda' },
 		  { title: 'Senators', icon: 'people', component: CongressionalMembersPage, naventry: 'Senators' },
 		  { title: 'Representatives', icon: 'people', component: CongressionalMembersPage, naventry: 'Representatives' },
 		  { title: 'Congressional Staff', icon: 'people', component: CongressionalStaffSearchPage, naventry: 'CongressionalStaffSearch' },
