@@ -779,7 +779,7 @@ export class HomePage {
 		var eventAvatar;
 		var maxRecs;
 		visAvatar = true;
-		
+
 		// Get the data
 		var AttendeeID = this.localstorage.getLocalValue('AttendeeID');
 		var flyinID = this.localstorage.getLocalValue('FlyinMeetingID');
@@ -795,7 +795,6 @@ export class HomePage {
 				
 				console.log('Home, RefreshUpcomingAgenda: getAgendaData: ' + JSON.stringify(data));
 			
-				var DayslotDivider = "";
 				this.upcomingAgendaItems = [];	
 				//this.upcomingContacts = [];	
 				
@@ -814,8 +813,7 @@ export class HomePage {
 
 							var dbEventDateTime = data[i].EventDate.substring(5, 10);
 							var DisplayDateTime = dbEventDateTime.replace(/-/g, '/');
-							var DisplayDate = dateFormat(data[i].EventDate, "dddd, m/dd");
-							
+
 							visStartTime = formatTime(data[i].EventStartTime);
 							visEndTime = formatTime(data[i].EventEndTime);
 							
@@ -908,65 +906,15 @@ export class HomePage {
 								}
 							}
 							
-							if (DisplayDate != DayslotDivider) {
-
-								// Display day divider
-								this.upcomingAgendaItems.push({
-									EventName: '',
-									visEventTimeframe: '',
-									visEventID: "'0|0'",
-									EventLocation: '',
-									eventTypeIcon: '',
-									visAvatar: false,
-									ContactAvatar: '',
-									DividerStyle: 'DividerTimeslot',
-									DisplayHeader: DisplayDate,
-									visEventName: false,
-									visTimeframe: false,
-									visEventLocation: false,
-									visDisplayHeader: true
-								});
-
-								// Set the new marker point
-								DayslotDivider = DisplayDate;
-
-								// Display agenda entry
-								this.upcomingAgendaItems.push({
-									EventName: visEventName,
-									visEventTimeframe: DisplayDateTime,
-									visEventID: "'" + data[i].EventID + "|" + data[i].itID + "'",
-									EventLocation: visEventLocation,
-									eventTypeIcon: eventIcon,
-									visAvatar: true,
-									ContactAvatar: eventAvatar,
-									DividerStyle: "",
-									DisplayHeader: '',
-									visEventName: true,
-									visTimeframe: true,
-									visEventLocation: true,
-									visDisplayHeader: false
-								});
-								
-							} else {
-								
-								// Display agenda entry
-								this.upcomingAgendaItems.push({
-									EventName: visEventName,
-									visEventTimeframe: DisplayDateTime,
-									visEventID: "'" + data[i].EventID + "|" + data[i].itID + "'",
-									EventLocation: visEventLocation,
-									eventTypeIcon: eventIcon,
-									visAvatar: true,
-									ContactAvatar: eventAvatar,
-									DividerStyle: "",
-									DisplayHeader: '',
-									visEventName: true,
-									visTimeframe: true,
-									visEventLocation: true,
-									visDisplayHeader: false
-								});
-
-							}
+							this.upcomingAgendaItems.push({
+								EventName: visEventName,
+								visEventTimeframe: DisplayDateTime,
+								visEventID: "'" + data[i].EventID + "|" + data[i].itID + "'",
+								EventLocation: visEventLocation,
+								eventTypeIcon: eventIcon,
+								visAvatar: true,
+								ContactAvatar: eventAvatar
+							});
 
 							/*
 							if (ContactCheck == 0) {
@@ -1002,17 +950,11 @@ export class HomePage {
 					this.upcomingAgendaItems.push({
 						EventName: "No upcoming agenda entries",
 						visEventTimeframe: "",
-						visEventID: "'0|0'",
 						EventLocation: "",
+						visEventID: "'0|0'",
 						eventTypeIcon: "",
 						visAvatar: true,
-						ContactAvatar: eventAvatar,
-						DividerStyle: "",
-						DisplayHeader: '',
-						visEventName: true,
-						visTimeframe: true,
-						visEventLocation: true,
-						visDisplayHeader: false
+						ContactAvatar: eventAvatar
 					});
 					
 				}

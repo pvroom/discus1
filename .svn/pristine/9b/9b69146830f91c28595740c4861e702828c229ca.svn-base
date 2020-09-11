@@ -28,7 +28,6 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { SurveyPage } from '../pages/survey/survey'; 
 import { MeetingDetailsPage } from '../pages/meetingdetails/meetingdetails'; 
 import { SponsorsPage } from '../pages/sponsors/sponsors';
-import { WelcomePage } from '../pages/welcome/welcome';
 
 // Temporary Support Pages
 //import { FloorplanMappingPage } from '../pages/floorplanmapping/floorplanmapping';
@@ -93,8 +92,7 @@ export class MyApp {
 		var MenuOptionTitle = flyinType + ' Materials';
 		
 		this.pages = [
-			{ title: 'Welcome', icon: 'people', component: WelcomePage, naventry: 'Welcome' },
-			{ title: 'Home', icon: 'home', component: HomePage, naventry: 'Home' },
+		  { title: 'Home', icon: 'home', component: HomePage, naventry: 'Home' },
 		  //{ title: 'My Agenda', icon: 'calendar', component: MyAgenda, naventry: 'MyAgenda' },
 		  { title: 'Senators', icon: 'people', component: CongressionalMembersPage, naventry: 'Senators' },
 		  { title: 'Representatives', icon: 'people', component: CongressionalMembersPage, naventry: 'Representatives' },
@@ -105,7 +103,7 @@ export class MyApp {
 		  { title: 'Sponsors', icon: 'ribbon', component: SponsorsPage, naventry: 'Sponsors' },
 		  { title: 'Help', icon: 'help-circle', component: HelpPage, naventry: 'Help' },
 		  { title: 'Notes', icon: 'create', component: NotesPage, naventry: 'Notes' },
-		//  { title: 'Feedback', icon: 'clipboard', component: SurveyPage, naventry: 'Feedback' },
+		  { title: 'Feedback', icon: 'clipboard', component: SurveyPage, naventry: 'Feedback' },
 		  //{ title: 'Push', icon: 'list-box', component: PushPage, naventry: 'Push Notifications' },
 		  { title: 'Push Notifications', icon: 'notifications', component: NotificationsPage, naventry: 'Notifications' },
 		  { title: 'Login', icon: 'create', component: LoginPage, naventry: 'Login' },
@@ -157,8 +155,6 @@ export class MyApp {
 		var MenuOptionTitle = flyinType + ' Materials';
 		
 		this.pages = [
-
-		  { title: 'Welcome', icon: 'people', component: WelcomePage, naventry: 'Welcome' },
 		  { title: 'Home', icon: 'home', component: HomePage, naventry: 'Home' },
 		  //{ title: 'My Agenda', icon: 'calendar', component: MyAgenda, naventry: 'MyAgenda' },
 		  { title: 'Senators', icon: 'people', component: CongressionalMembersPage, naventry: 'Senators' },
@@ -170,7 +166,7 @@ export class MyApp {
 		  { title: 'Sponsors', icon: 'ribbon', component: SponsorsPage, naventry: 'Sponsors' },
 		  { title: 'Help', icon: 'help-circle', component: HelpPage, naventry: 'Help' },
 		  { title: 'Notes', icon: 'create', component: NotesPage, naventry: 'Notes' },
-		//  { title: 'Feedback', icon: 'clipboard', component: SurveyPage, naventry: 'Feedback' },
+		  { title: 'Feedback', icon: 'clipboard', component: SurveyPage, naventry: 'Feedback' },
 		  //{ title: 'Push', icon: 'list-box', component: PushPage, naventry: 'Push Notifications' },
 		  { title: 'Push Notifications', icon: 'notifications', component: NotificationsPage, naventry: 'Notifications' },
 		  { title: 'Login', icon: 'create', component: LoginPage, naventry: 'Login' },

@@ -1,0 +1,60 @@
+<!--
+  Generated template for the WelcomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+ 
+<div style="width:35%; margin:auto">
+  
+<img src="./assets/img/logo.png">
+  
+</div>
+  
+
+Welcome to the Distilled Spirits Council of the United States (DISCUS) and American Craft Spirits Association (ACSA)’s 2020 Public Policy Conference!  
+<br>
+<br>
+We hope you and yours are staying healthy during this challenging time for our country. We wish we were able to gather in-person in Washington, DC as in years past, but we’re glad to be able to convene virtually – with over 300 participants from 46 states. We’re also joined by Wine & Spirits Shippers Association, Five x 5 Solutions, ByQuest and Glencairn, friends of our industry who without their support, would have limited our ability to host this event.
+<br>
+<br>
+This is a particularly important moment for our industry. As many distilleries have struggled to keep their doors open during the COVID-19 crisis, we now face in just a few months’ time an increase in federal excise taxes (FET) as the current rates expire at the end of the year. The negative impacts of the retaliatory tariffs on U.S. spirits products are mounting, and EU tariffs are poised to increase on American Whiskey in 2021 absent a resolution to current trade tensions.  The industry also has concerns about new draft recommendations from U.S. government agencies on alcohol consumption that are not based in science and should not be adopted.
+<br>
+<br>
+Over the next two days, distillers of all sizes will unite to speak with a single, powerful voice on key issues. We’ve heard from you how the enactment of the Craft Beverage Modernization and Tax Reform Act in 2017 and again in 2019 enabled you to reinvest in your businesses, your employees, and your communities – and more recently how it’s helped your business endure these precarious times. As part of the conference, you will meet with your members of Congress virtually on Wednesday to share your stories and underscore the importance of making this tax cut permanent.   
+<br>
+<br>
+We will also have the opportunity to engage with senior officials at the Alcohol and Tobacco Tax and Trade Bureau (TTB); hear from Craft Beverage Modernization and Tax Reform Act champions Senator Ron Wyden (D-OR) and Senator Roy Blunt (R-MO); and learn about policy issues shaping the industry from DISCUS and ACSA experts.  
+<br>
+<br>
+We’re already looking forward to raising a glass to you and a successful conference during our virtual closing toast on Wednesday. We hope you enjoy the next few days learning more about the pressing issues facing the spirits industry and joining together – albeit from afar – with your fellow distillers who share your passion for craft spirits. 
+<br>
+<br>
+Warm regards and gratitude for your participation from our nation’s capital,    
+
+<ion-grid>
+<ion-row>
+<ion-col col-6>
+  <p style="margin-left:0">Chris Swonger, President & CEO, Distilled Spirits Council of the United States</p>
+  <img src="./assets/img/chrissig.png">
+</ion-col>
+<ion-col col-6>
+  <p>Margie A.S. Lehrman, CEO, American Craft Spirits Association</p>
+  <img src="./assets/img/margiesig.png">
+</ion-col>
+</ion-row>
+
+</ion-grid>
+
+</ion-content>
